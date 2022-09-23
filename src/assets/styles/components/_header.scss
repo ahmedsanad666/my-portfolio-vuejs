@@ -1,0 +1,117 @@
+header {
+  border-color: black;
+  height: 100%;
+
+  nav {
+    height: 100%;
+    @include flex-box(row);
+    position: relative;
+    ul {
+      @include flex-box(column);
+      justify-content: space-around;
+      align-items: flex-end;
+      padding-right: 20px;
+      height: 52%;
+
+      // height:30%;
+      // position: absolute;
+
+      .logout {
+        width: 50px;
+        height: 55px;
+        padding-left: 22px;
+        border-radius: 2rem;
+        position: relative;
+        background-color: $dark;
+        &:hover {
+          width: 50px;
+          height: 55px;
+        }
+      }
+      li {
+        transition: 0.2s linear;
+        @include flex-box;
+        width: 50px;
+        height: 55px;
+        padding-left: 22px;
+        border-radius: 2rem;
+        position: relative;
+        background-color: $dark;
+
+        a {
+          .svg-inline--fa {
+            border-radius: 50% 50%;
+            font-size: 1.2em;
+            padding: 1rem;
+            position: absolute;
+            right: 0;
+            background-color: $secondary;
+            border: 1px $border solid;
+          }
+          h5 {
+            opacity: 0;
+            transition: 0.2s ease-in;
+            text-transform: capitalize;
+          }
+        }
+
+        // li hover
+        &:hover {
+          width: 150px;
+          background-color: $primary;
+
+          .svg-inline--fa {
+            background-color: $primary;
+            border: none;
+          }
+          h5 {
+            opacity: 100;
+          }
+        }
+      }
+    }
+  }
+}
+
+// responsieve
+
+@media screen and (max-width: 992px) {
+  header {
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    height: 5rem;
+    background-color: $border;
+  }
+
+  nav {
+    align-items: flex-end !important;
+    justify-content: center !important;
+    ul {
+      flex-direction: row !important;
+      background-color: $border;
+      height: 60% !important;
+
+      li {
+        border: none;
+        background-color: $border !important;
+        a {
+          .svg-inline--fa {
+            padding: 1.3rem !important;
+            left: 0;
+            top: -15px;
+          }
+          h5 {
+            display: none;
+          }
+        }
+        &:hover {
+          width: 50px !important;
+          height: 55px !important;
+          background-color: $border;
+        }
+      }
+    }
+  }
+}

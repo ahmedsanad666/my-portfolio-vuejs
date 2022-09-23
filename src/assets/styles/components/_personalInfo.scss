@@ -1,0 +1,30 @@
+section {
+  color: $light;
+  h3 {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    font-family: $main-font;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+
+  div {
+    ul {
+      li {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+
+        span {
+          color: $grey;
+        }
+      }
+    }
+    // .cv {
+    //     ma
+    // }
+    @include magicbutton;
+    .svg-inline--fa {
+      top: 0;
+    }
+  }
+}

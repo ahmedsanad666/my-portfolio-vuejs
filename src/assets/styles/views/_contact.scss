@@ -1,0 +1,27 @@
+.contact-page {
+  min-height: 100vh;
+
+  .contact-section {
+    .form-section {
+      padding-left: 2rem;
+    }
+
+    .social-media {
+      .svg-inline--fa {
+        margin-left: 10px;
+        padding: 13px;
+        background: $secondary;
+        border-radius: 50% 50%;
+        transition: 0.2s all linear;
+
+        &:hover {
+          background: $primary;
+        }
+      }
+    }
+  }
+}
+.container {
+  width: 90%;
+  margin: auto;
+}

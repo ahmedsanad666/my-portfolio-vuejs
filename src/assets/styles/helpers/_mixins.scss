@@ -1,0 +1,22 @@
+@mixin flex-box($dir: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
+}
+
+@mixin magicbutton {
+  .magicButton {
+    margin-left: 3rem;
+    .svg-inline--fa {
+      // border:1px red solid ;
+      position: absolute;
+      right: 0;
+
+      padding: 20px;
+      border-radius: 50% 50%;
+      background-color: $primary;
+      color: $light;
+    }
+  }
+}
