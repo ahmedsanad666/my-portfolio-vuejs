@@ -36,10 +36,9 @@
 </template>
 
 <script>
-import BaseSpinner from "../../../deploy-01-starting-project/src/components/ui/BaseSpinner.vue";
 import ProjectCard from "../components/portfolio/ProjectCard.vue";
 export default {
-  components: { ProjectCard, BaseSpinner },
+  components: { ProjectCard,  },
 
   data() {
     return {
