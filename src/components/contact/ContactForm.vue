@@ -6,6 +6,7 @@
         :title="!!error ? 'Some thing went wrong!' : 'Successfull Message'"
         @close="handelError"
       >
+      
         <p>{{ !!error ? error: successededMessge }}</p></base-dialog
       >
     </div>
