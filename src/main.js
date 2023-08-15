@@ -25,6 +25,7 @@ import BaseCard from "./components/ui/BaseCard";
 import BaseSpinner from "./components/ui/BaseSpinner";
 
 import BaseDialog from "./components/ui/BaseDialog";
+import './assets/tailwind.css'
 
 library.add(fas, faTwitter, faFacebook, faStackOverflow, faGithub,faInstagramSquare,faYoutube);
 

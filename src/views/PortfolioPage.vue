@@ -9,22 +9,25 @@
       >
     </div>
     <section class="container text-center">
+      <project-dialog
+        ref="dialog"
+        :showD="showDialog"
+        @close="closeDialog"
+      ></project-dialog>
       <the-title title=" my portfolio" backTitle="works"></the-title>
       <base-spinner v-if="isLoading"></base-spinner>
-      <div class="row py-4">
-        <!-- ................. -->
-        <project-card
-          v-for="project in projects"
-          :key="project.id"
-          :title="project.title"
-          :img="project.img"
-          :link="project.link"
-        ></project-card>
 
-        <!-- .................................................. -->
-        <!-- add project icon  -->
-        <div class="col-md-4 col-12" v-if="isUser">
-          <div class="add-new-project border">
+      <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
+        <project-card
+          @show="showProj(el.id)"
+          :title="el.title"
+          :img="el.imgByte"
+          v-for="(el, key) in projects"
+          :key="key"
+        ></project-card>
+        <!-- .............. -->
+        <div v-if="isUser">
+          <div class="add-new-project">
             <router-link to="/add-project">
               <font-awesome-icon :icon="['fa-solid', 'fa-plus']" size="4x" />
             </router-link>
@@ -37,13 +40,15 @@
 
 <script>
 import ProjectCard from "../components/portfolio/ProjectCard.vue";
+import ProjectDialog from "../components/portfolio/ProjectDialog.vue";
 export default {
-  components: { ProjectCard,  },
+  components: { ProjectCard, ProjectDialog },
 
   data() {
     return {
       error: null,
       isLoading: false,
+      showDialog: false,
     };
   },
   computed: {
@@ -60,6 +65,13 @@ export default {
     this.getProjects();
   },
   methods: {
+    closeDialog() {
+      this.showDialog = false;
+    },
+    showProj(id) {
+      this.showDialog = !this.showDialog;
+      this.$refs.dialog.loadProject(id);
+    },
     async getProjects() {
       this.isLoading = true;
       try {

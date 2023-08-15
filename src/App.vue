@@ -24,4 +24,18 @@ this.$store.dispatch('tryLogin')
 
 <style lang="scss">
 // @import "@/assets/styles/views/main";
+  
+html {
+  overflow: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* Set the color of the scrollbar thumb and track */
+}
+
+html::-webkit-scrollbar {
+  width: 0.5em; /* Adjust the width as needed */
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent; /* Set the background color of the scrollbar track */
+}
 </style>

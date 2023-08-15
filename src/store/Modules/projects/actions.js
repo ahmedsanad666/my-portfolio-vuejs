@@ -1,41 +1,32 @@
 export default {
-  async createProject(context, payload) {
-    const token = context.rootGetters.token; 
+  async createProject(_, payload) {
 
-    const newProject = {
-     
-      title: payload.title,
-      img: payload.img,
-      link: payload.link,
-    };
-
+   
     const response = await fetch(
-      ` https://my-portfolio-364f3-default-rtdb.firebaseio.com/projects.json?auth=${token}`,
+      `https://localhost:7281/api/projects`,
       {
         method: "POST",
-        body: JSON.stringify(newProject),
+        body: payload
       }
     );
-
-    const responseData = await response.json();
+    console.log(payload);
 
     if (!response.ok) {
       const error = new Error(
-        responseData.message || "faild to send your message!"
+       "faild to send your message!"
       );
 
       throw error;
     }
 
-    newProject.id = responseData.id;
-    context.commit("addProject", newProject);
+  
   },
 
   // get all projects
 
   async getProjects(context) {
-    const response = await fetch(
-      "https://my-portfolio-364f3-default-rtdb.firebaseio.com/projects.json"
+    const response = await fetch( 
+      "https://localhost:7281/api/projects"
     );
 
     const responseData = await response.json();
@@ -48,19 +39,11 @@ export default {
 
     const projects = [];
 
-    for (const key in responseData) {
-      const project = {
-        id:key,
-        title: responseData[key].title,
-        link: responseData[key].link,
-        img: responseData[key].img,
-      };
 
-      projects.push(project);
-    }
-
-
-
+    responseData.forEach(element => {
+      projects.push(element)
+      
+    });
     context.commit("setProjects", projects);
   },
 };

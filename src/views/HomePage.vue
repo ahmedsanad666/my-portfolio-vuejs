@@ -10,7 +10,7 @@
           <h2 class="headTitle">
             -I'M AHMED SANAD.
             <br />
-            <span class="headSpan"> FULL STACK WEBDEVELOPER. </span>
+            <span class="headSpan "> FULL STACK WEBDEVELOPER. </span>
           </h2>
           <p class="headP">
             Creative bilingual/multilingual full-stack Developer skilled at

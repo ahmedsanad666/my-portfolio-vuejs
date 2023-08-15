@@ -1,25 +1,29 @@
+w2
 <template>
-  <div class="col-md-4 col-12">
+  <div>
     <div class="text-center">
       <div class="card">
         <div class="img">
-          <img :src="img" />
+          <img :src="`data:image/png;base64,${img}`" />
         </div>
         <div class="project-link">
-          <a :href="link">
+          <button @click="$emit('show')">
             <font-awesome-icon :icon="['fa-solid', 'fa-eye']" />
-          </a>
+          </button>
         </div>
       </div>
-      <h6 class="my-3">{{ title }}</h6>
+      <h2
+        class="w-[95%] m-auto rounded-lg  border-b  text-[#D59A0A] py-2 md:text-xl"
+      >
+        {{ title }}
+      </h2>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  
-  props:['link','img','title']
+  props: ["img", "title"],
 };
 </script>
 
@@ -65,13 +69,14 @@ h6 {
   width: 20px;
 
   height: 20px;
-  a {
+  button {
     .svg-inline--fa {
       padding: 20px;
       position: absolute;
       border-radius: 50% 50%;
       right: 50%;
       top: -280%;
+      opacity: .7;
       transform: translate(50%, 50%);
       background-color: rgba($color: $primary, $alpha: 0.8);
       box-shadow: 0px 0px 5px black;
